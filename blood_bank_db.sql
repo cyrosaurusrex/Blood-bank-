@@ -65,12 +65,8 @@ CREATE TABLE Recipient (
 
 CREATE TABLE Admin (
     admin_id VARCHAR(10) PRIMARY KEY,
-    user_id VARCHAR(10) NOT NULL,
-    role_id INT NOT NULL,
-    assigned_at DATETIME NOT NULL,
-    is_active TINYINT(1) DEFAULT 1,
-    FOREIGN KEY (user_id) REFERENCES User(user_id),
-    FOREIGN KEY (role_id) REFERENCES Role(role_id)
+    username VARCHAR(50) NOT NULL,
+    password VARCHAR(100) NOT NULL,
 );
 
 CREATE TABLE Event (
@@ -144,7 +140,6 @@ CREATE TABLE Event_Registration (
     FOREIGN KEY (event_id) REFERENCES Event(event_id),
     FOREIGN KEY (donor_id) REFERENCES Donor(donor_id)
 );
-
 
 -- ----------------------------
 -- SAMPLE DATA
